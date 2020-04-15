@@ -1,0 +1,90 @@
+\definecolor{mpiblue}{HTML}{33a5c3}
+\colorlet{MPIblue}{mpiblue}
+\definecolor{mpibluefont}{HTML}{17a1c1}
+\colorlet{MPIbluefont}{mpibluefont}
+\definecolor{mpigreen}{HTML}{007675}
+\colorlet{MPIgreen}{mpigreen}
+\definecolor{mpired}{HTML}{78004B}
+\colorlet{MPIred}{mpired}
+\definecolor{mpisand}{HTML}{ece9d4}
+\colorlet{MPIsand}{mpisand}
+\newcommand{\Depth}{1.8}
+\newcommand{\Height}{1.5}
+\newcommand{\Width}{1.2}
+\newcommand{\xx}{1}
+\newcommand{\yy}{1}
+\newcommand{\zz}{1}
+\begin{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Main tensor X
+ \coordinate (O) at (0,0,0);
+\coordinate (A) at (0,\Width,0);
+\coordinate (B) at (0,\Width,\Height);
+\coordinate (C) at (0,0,\Height);
+\coordinate (D) at (\Depth,0,0);
+\coordinate (E) at (\Depth,\Width,0);
+\coordinate (F) at (\Depth,\Width,\Height);
+\coordinate (G) at (\Depth,0,\Height);
+\draw[mpiblue!60!black,fill=mpiblue!5] (O) -- (C) -- (G) -- (D) -- cycle;% Bottom Face
+\draw[mpiblue!60!black,fill=mpiblue!5] (O) -- (A) -- (E) -- (D) -- cycle;% Back Face
+\draw[mpiblue!60!black,fill=mpiblue!5] (O) -- (A) -- (B) -- (C) -- cycle;% Left Face
+\draw[mpiblue!60!black,fill=mpiblue!5,opacity=0.8] (D) -- (E) -- (F) -- (G) -- cycle;% Right Face
+\draw[mpiblue!60!black,fill=mpiblue!5,opacity=0.6] (C) -- (B) -- (F) -- (G) -- cycle;% Front Face
+\draw[mpiblue!60!black,fill=mpiblue!5,opacity=0.8] (A) -- (B) -- (F) -- (E) -- cycle;% Top Face
+ % coordinates         
+ \coordinate (O) at (0+\xx,0+0.7\yy,0+\zz);  % positining tensor X
+ \coordinate (F) at (1.5+\xx,0 +0.7\yy, 0+\zz);
+% \coordinate (F) at (\Depth+\xx,0.25\Width+\yy,0.25\Height+\zz); % positioning approx_equal  
+ 
+\draw (0.3,-1,0) node {\scriptsize{$I_2$}}; % 2nd dimension
+\draw (0.3,-0.7,0) node[rotate = 0] {$\underbrace{\hspace{1.8cm}}$};
+\draw (0.3,1.2,3.2) node[rotate = 0] {\scriptsize{$ I_1$}}; % 1st dimension
+\draw (0.45,1.2,3) node[rotate = 270] {$\underbrace{\hspace{1.2cm}}$};
+\draw (2.3,0,1.5) node[rotate = 0, below right = -0.3cm] {\scriptsize{$I_3$}}; % 3rd dimension
+\draw (2,0,1) node[rotate = 45] {$\underbrace{\hspace{0.8cm}}$};
+\draw (O) node {$\tensx$}; % tensor X
+\draw (F) node {$\cong$}; % approx_equal symbol
+
+ %%%%%% CP%%%%%%%%%%%
+ %%%% core 1 %%%
+    \draw [very thick] (2.5,-0.7) rectangle (2.7,0.3);
+    \filldraw [fill=mpired!20!white,draw=mpigreen!40!black] (2.5,-0.7) rectangle (2.7,0.3);
+    \draw (3,-0.6) node {\scriptsize{$\ra^{(1)}_1$}};
+%     
+   \draw [very thick] (2.8, 0.4) rectangle (4,0.6);
+   \filldraw [fill=mpired!30!white,draw=mpigreen!40!black] (2.8,0.4) rectangle (4,0.6);
+   \draw (3.8, 0.15) node {\scriptsize{$\ra^{(2)}_1$}};
+%
+    \draw[fill=mpired!35!white,draw=mpigreen!40!black, thick] (2.5,0.7) --(2.7,0.7)--(3.2,1.3)--(3,1.3) -- cycle;
+   \draw (3.5,1.3) node {\scriptsize{$\ra^{(3)}_1$}};
+   
+ %% signs %%%  
+    \draw (4.4,0.5) node {{\color{black}\large{$+$}}};
+    \draw (6.5,0.5) node {{\color{black}\large{$+$}}};
+    \draw (7,0.5) node {{\color{black}\large{$\cdots$}}};
+    \draw (7.5,0.5) node {{\color{black}\large{$+$}}};
+%%%% core 2 %%%
+    \draw [very thick] (4.7,-0.7) rectangle (4.9,0.3);
+    \filldraw [fill=mpired!20!white,draw=mpigreen!40!black] (4.7,-0.7) rectangle (4.9,0.3);
+    \draw (5.2,-0.6) node {\scriptsize{$\ra^{(1)}_2$}};
+%     
+   \draw [very thick] (5, 0.4) rectangle (6.2,0.6);
+   \filldraw [fill=mpired!30!white,draw=mpigreen!40!black] (5,0.4) rectangle (6.2,0.6);
+   \draw (6, 0.15) node {\scriptsize{$\ra^{(2)}_2$}};
+%
+    \draw[fill=mpired!35!white,draw=mpigreen!40!black, thick] (4.7,0.7) --(4.9,0.7)--(5.4,1.3)--(5.2,1.3) -- cycle; 
+   \draw (5.7,1.3) node {\scriptsize{$\ra^{(3)}_2$}};
+
+   %%%% core 3 %%%
+    \draw [very thick] (7.7,-0.7) rectangle (7.9,0.3);
+    \filldraw [fill=mpired!20!white,draw=mpigreen!40!black] (7.7,-0.7) rectangle (7.9,0.3);
+    \draw (8.2,-0.6) node {\scriptsize{$\ra^{(1)}_R$}};
+%     
+   \draw [very thick] (8, 0.4) rectangle (9.2,0.6);
+   \filldraw [fill=mpired!30!white,draw=mpigreen!40!black] (8,0.4) rectangle (9.2,0.6);
+   \draw (9, 0.15) node {\scriptsize{$\ra^{(2)}_R$}};
+%
+    \draw[fill=mpired!35!white,draw=mpigreen!40!black, thick] (7.7,0.7) --(7.9,0.7)--(8.4,1.3)--(8.2,1.3) -- cycle; 
+   \draw (8.7,1.3) node {\scriptsize{$\ra^{(3)}_R$}};
+
+\end{tikzpicture}

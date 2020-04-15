@@ -1,0 +1,827 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mymacros}[2009/02/18 1.0 LaTeX2e math alphabet
+macros and more]
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsfonts} 
+\RequirePackage{textcomp} 
+
+\DeclareOption{fonts}{
+  \DeclareSymbolFont{AMSb}{U}{pxsyb}{m}{n}
+  \SetSymbolFont{AMSb}{bold}{U}{pxsyb}{bx}{n}
+  \DeclareFontSubstitution{U}{pxsyb}{m}{n}
+  \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Software Macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOption{software}{
+  \newcommand{\alberta}{\textsf{ALBERTA}}
+  \newcommand{\lapack}{\textsf{LAPACK}}
+  \newcommand{\scalapack}{\textsf{ScaLAPACK}}
+  \newcommand{\blas}{\textsf{BLAS}}
+  \newcommand{\fblas}{\textsf{Flexi\-BLAS}}
+  \newcommand{\flexiblas}{\fblas}
+  \newcommand{\lyapack}{\textsf{LyaPack}}
+  \newcommand{\mess}{\textsf{M.E.S.S.}}
+  \newcommand{\cumess}{\textsf{Cu.M.E.S.S.}}
+  \newcommand{\cmess}{\textsf{C-M.E.S.S.}}
+  \newcommand{\mmess}{\matlab-\textsf{M.E.S.S.}}
+  \newcommand{\pymess}{\textsf{Python-M.E.S.S.}}
+  \newcounter{mymac@matlab}
+  \setcounter{mymac@matlab}{0}
+  \newcommand{\matlab}{MATLAB% 
+   \ifnum\value{mymac@matlab}<1%
+   \textsuperscript{\textregistered}%
+   \setcounter{mymac@matlab}{1}%
+   \fi%
+  }
+  \newcounter{mymac@simulink}
+  \setcounter{mymac@simulink}{0}
+  \newcommand{\simulink}{Simulink
+   \ifnum\value{mymac@simulink}<1
+   \textsuperscript{\textregistered}
+   \setcounter{mymac@simulink}{1}
+  \fi
+  }
+  \newcommand{\cstb}{Control Systems Toolbox\texttrademark}
+  \newcommand{\grape}{\textsf{GRAPE}}
+  \newcommand{\gltools}{\textsf{gltools}}
+  \newcommand{\plicmr}{\textsf{PLiCMR}}
+  \newcommand{\navier}{\textsf{NAVIER}}
+  \newcommand{\fortranA}{\textsf{FORTRAN77}}
+  \newcommand{\fortranN}{\textsf{FORTRAN90}}
+  \newcommand{\gmres}{\textsf{GMRES}}
+  \newcommand{\minres}{\textsf{MINRES}}
+  \newcommand{\cgv}{\textsf{CG}}
+  \newcommand{\pardiso}{\textsf{PARDISO}}
+  \newcommand{\umfpack}{\textsf{UMFPACK}}
+  \newcommand{\suitesparse}{\textsf{SuiteSparse}}
+  \newcommand{\superlu}{\textsf{SuperLU}}
+  \newcommand{\itpack}{\textsf{ITPACK}}
+  \newcommand{\feins}{\textsf{FEINS}}
+  \newcommand{\bdf}{\textsf{BDF2}}
+  \newcommand{\bicgstab}{\textsf{BiCGStab}}
+  \newcommand{\petsc}{\textsf{PETSc}}
+  \newcommand{\trilinos}{\textsf{Trilinos}}
+  \newcommand{\hsl}{\textsf{HSL}}
+  \newcommand{\arpack}{\textsf{ARPACK}}
+  \newcommand{\netgen}{\textsf{NETGEN}}
+  \newcommand{\paraview}{\textsf{ParaView}}
+  \newcommand{\visit}{\textsf{VisIt}}
+  \newcommand{\vtk}{\textsf{VTK}}
+  \newcommand{\ifiss}{\textsf{IFISS}}
+  \newcommand{\multigrid}{{\it multigrid}}
+  \newcommand{\fenics}{\textsf{FEniCS}}
+  \newcommand{\slicot}{\textsf{SLICOT}}
+  \newcommand{\octave}{\textsf{Octave}}
+  \newcommand{\gcc}{\textsf{GCC}}
+  \newcommand{\gfortran}{\textsf{GFortran}}
+  \newcommand{\cosar}{\textsf{COSAR}}
+  \newcommand{\dealii}{\textsf{deal.II}}
+  \newcommand{\dune}{\textsf{DUNE}}
+  \newcommand{\ngsolve}{\textsf{NGSolve}}
+  \newcommand{\feap}{\textsf{FEAP}}
+  \newcommand{\feappv}{\textsf{FEAPpv}}
+  \newcommand{\fluidity}{\textsf{FLUIDITY}}
+  \newcommand{\freecfd}{\textsf{FreeCFD}}
+  \newcommand{\libmesh}{\textsf{libMESH}}
+  \newcommand{\oofem}{\textsf{OOFEM}}
+  \newcommand{\openfoam}{\textsf{openFOAM}}
+  \newcommand{\openfvm}{\textsf{openFVM}}
+  \newcommand{\prometheus}{\textsf{PROMETHEUS}}
+  \newcommand{\wsmp}{\textsf{WSMP}}
+  \newcommand{\spooles}{\textsf{SPOOLES}}
+  \newcommand{\slepc}{\textsf{SLEPc}}
+  \newcommand{\imlpp}{\textsf{IML{\bf ++}}}
+  \newcommand{\parmetis}{\textsf{ParMETIS}}
+  \newcommand{\numpy}{\textsf{NumPy}}
+  \newcommand{\scipy}{\textsf{SciPy}}
+  \newcommand{\scotch}{\textsf{Scotch}}
+  \newcommand{\gmp}{\textsf{GMP}}
+  \newcommand{\cgal}{\textsf{CGAL}}
+  \newcommand{\mpi}{\textsf{MPI}}
+  \newcommand{\laspack}{\textsf{LASpack}}
+  \newcommand{\trimesh}{\textsf{Triangle}}
+  \newcommand{\tetgen}{\textsf{TetGen}}
+  \newcommand{\xdr}{\textsf{XDR}}
+  \newcommand{\libhilbert}{\textsf{libHilbert}}
+  \newcommand{\geomview}{\textsf{Geomview}}
+  \newcommand{\gmv}{\textsf{GMV}}
+  \newcommand{\opendx}{\textsf{OpenDX}}
+  \newcommand{\gmsh}{\textsf{Gmsh}}
+  \newcommand{\mayavi}{\textsf{MayaVi}}
+  \newcommand{\tthreed}{\textsf{T3D}}
+  \newcommand{\targetwo}{\textsf{TARGE2}}
+  \newcommand{\xeleven}{\textsf{X11}}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hardware macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOption{hardware}{
+  \newcommand{\intel}{Intel\textsuperscript{\textregistered}}
+  \newcommand{\pentiumm}{Pentium\textsuperscript{\textregistered}\ M}
+  \newcommand{\pentiumfour}{Pentium\textsuperscript{\textregistered}\ 4}
+  \newcommand{\atom}{Atom\texttrademark}
+  \newcommand{\coretwo}{Core\texttrademark 2}
+  \newcommand{\coreithree}{Core\texttrademark i3}
+  \newcommand{\coreifive}{Core\texttrademark i5}
+  \newcommand{\coreiseven}{Core\texttrademark i7}
+  \newcommand{\xeon}{Xeon\textsuperscript{\textregistered}}
+  \newcommand{\amd}{AMD}
+  \newcommand{\opteron}{Opteron\texttrademark}
+  \newcommand{\geforce}{{\fontfamily{jkpss}\fontshape{sc}\selectfont GeForce}\textsuperscript{\textregistered}}
+  \newcommand{\nvidia}{{\fontfamily{jkpss}\fontshape{sc}\selectfont Nvidia}\textsuperscript{\textregistered}}
+}
+
+\newif\ifletter\letterfalse
+\DeclareOption{letter}{
+  \lettertrue
+}
+\newif\ifsiam\siamfalse
+\DeclareOption{siam}{
+  \siamtrue
+}
+\ProcessOptions*
+%%%%%%%%%%%%%%%%%%%%  MACROS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% colorful comments %%%%%
+% \newcommand{\comment}[2]{%
+%   \colorbox{yellow}{#1}%
+%   \marginpar{\textcolor{red}{#2}}%
+% }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% check for empty definition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter 
+\def\ifEmpty#1{\def\@temp{#1}\ifx\@temp\@empty} 
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% equations
+\newcommand{\be}[1]{\begin{equation}\label{#1}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bean}{\begin{eqnarray*}}
+\newcommand{\eean}{\end{eqnarray*}}
+
+
+%%%%% matrix construction %%%%%
+\newcommand{\Matrix}[4]{\ensuremath{\left[ \begin{array}{cc} #1 & #2 \\[5pt]
+                         #3 & #4 \end{array} \right] }}
+\newcommand{\Vektor}[2]{\ensuremath{\left[ \begin{array}{c} #1 \\
+                         #2 \end{array} \right] }}
+\newcommand{\smallMatrix}[4]{\left[ 
+   {\scriptstyle #1 \atop \scriptstyle #3 }~ 
+   {\scriptstyle #2 \atop  \scriptstyle #4 } \right]}
+\newcommand{\smallVektor}[2]{\ensuremath{\left[
+   {\scriptstyle #1 \atop \scriptstyle #2 } \right]}}
+
+\newcommand {\mat}      [1] {\ensuremath{\left[\begin{array}{#1}}}
+\newcommand {\rix}          {\ensuremath{\end{array}\right]}}
+\newcommand{\bmat}[1]{\left[ \begin{array}{#1}}
+\newcommand{\emat}{\end{array} \right]}
+
+
+\newcommand{\nref}[1]{(\ref{#1})}
+\newcommand{\Inv}{\ensuremath{\mathop{\rm Inv}\nolimits}}
+\newcommand{\eig}[1]{\ensuremath{\Lambda\,(#1)}}
+\newcommand{\svd}[1]{\ensuremath{\sigma\,(#1)}}
+\newcommand{\Real}[1]{\ensuremath{\mathop{\rm Re}\,(#1)}}
+\newcommand{\Imag}[1]{\ensuremath{\mathop{\rm Im}\,(#1)}}
+\newcommand{\conj}[1]{\ensuremath{\overline{#1}}}
+\newcommand{\half}{\ensuremath{\frac{1}{2}}}
+\newcommand{\iu}{\ensuremath{\mathrm{i}}}
+
+\newcommand{\colspan}[1]{\ensuremath{\mathop{\mathrm{colspan}}\left(
+      #1 \right)}}
+\newcommand{\ortho}[1]{\ensuremath{\mathop{\mathrm{orth}}\left(
+		#1 \right)}}
+\newcommand{\colsp}[1]{\ensuremath{\mathop{\mathrm{colsp}}\left( #1 \right)}}
+\newcommand{\myspan}[1]{\ensuremath{\mathop{\mathrm{span}}\left\lbrace #1 \right\rbrace}}
+\ifsiam
+  \newcommand{\mydiag}[1]{\ensuremath{\mathop{\mathrm{diag}}\left( #1 \right)}}
+\else
+  \newcommand{\diag}[1]{\ensuremath{\mathop{\mathrm{diag}}\left( #1 \right)}}
+\fi
+\newcommand{\vecop}[1]{\ensuremath{\mathop{\mathrm{vec}}\left( #1 \right)}}
+
+  \newcommand{\blkdiag}[1]{\ensuremath{\mathop{\mathrm{blkdiag}}\left( #1 \right)}} 
+  
+%bra-ket and inner-product stuff
+\newcommand{\bra}[1]{\ensuremath{\left\langle #1\right|}}
+\newcommand{\brac}[1]{\ensuremath{\left( #1\right)}}
+\newcommand{\ket}[1]{\ensuremath{\left| #1\right\rangle}}
+\newcommand{\expect}[1]{\ensuremath{\left\langle #1\right\rangle}}
+\newcommand{\ip}[2]{\ensuremath{\left\langle #1 \middle| #2\right\rangle}}
+\newcommand{\ipop}[3]{\ensuremath{\left\langle#1\middle|#2\middle|#3\right\rangle}}
+\newcommand{\abssqr}[1]{\ensuremath{\left|#1\right|^2}}
+\newcommand{\meansqr}[1]{\ensuremath{\overline{\left(#1\right)^2}}}
+
+% some integral and derivates
+\newcommand{\intinf}{\ensuremath{\int\limits_{-\infty}^{\infty}}}
+\newcommand{\intab}[2]{\ensuremath{\int\limits_{#1}^{#2}}}
+\newcommand{\sumn}[1]{\ensuremath{\sum\limits_{#1}}}
+\newcommand{\partderiv}[3]{\ensuremath{\frac{\partial^{#3}#1}{\partial #2^{#3}}}}
+\newcommand{\deriv}[3]{\ensuremath{\frac{\mathrm{d}^{#3}#1}{\mathrm{d} #2^{#3}}}}
+\newcommand{\dmop}[4]{\mathop{#1\limits_{#2}^{#4}}_{#3}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand\A{\ensuremath{\mathbb{A}}}
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\K{\ensuremath{\mathbb{K}}}
+\newcommand\D{\ensuremath{\mathbb{D}}}
+\newcommand\E{\ensuremath{\mathbb{E}}}
+\newcommand\F{\ensuremath{\mathbb{F}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\newcommand\PP{\ensuremath{\mathbb{P}}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\Sb{\ensuremath{\mathbb{S}}}
+\newcommand\OO{\ensuremath{\mathbb{O}}}
+\newcommand\II{\ensuremath{\mathbb{I}}}
+\newcommand{\Rt}{\ensuremath{\R^3}}
+\newcommand{\Rn}{\ensuremath{\R^{n}}}
+\newcommand{\Rd}{\ensuremath{\R^{d}}}
+\newcommand{\Ru}{\ensuremath{\R^{u}}}
+\newcommand{\Rm}{\ensuremath{\R^{m}}}
+\newcommand{\Rk}{\ensuremath{\R^{k}}}
+\newcommand{\Rp}{\ensuremath{\R^{p}}}
+\newcommand{\Rq}{\ensuremath{\R^{q}}}
+\newcommand{\Rr}{\ensuremath{\R^{r}}}
+\newcommand{\RI}{\ensuremath{\R^{I}}}
+\newcommand{\Rtn}{\ensuremath{\R^{2n}}}
+\newcommand{\Rnn}{\ensuremath{\R^{n\times n}}}
+\newcommand{\Rtnn}{\ensuremath{\R^{2n\times 2n}}}
+\newcommand{\Rkk}{\ensuremath{\R^{k\times k}}}
+\newcommand{\Rkm}{\ensuremath{\R^{k\times m}}}
+\newcommand{\Rkp}{\ensuremath{\R^{k\times p}}}
+\newcommand{\Rpk}{\ensuremath{\R^{p\times k}}}
+\newcommand{\Rpn}{\ensuremath{\R^{p\times n}}}
+\newcommand{\Rnp}{\ensuremath{\R^{n\times p}}}
+\newcommand{\Rnk}{\ensuremath{\R^{n\times k}}}
+\newcommand{\Rnm}{\ensuremath{\R^{n\times m}}}
+\newcommand{\Rnu}{\ensuremath{\R^{n\times u}}}
+\newcommand{\Rpm}{\ensuremath{\R^{p\times m}}}
+\newcommand{\Rpp}{\ensuremath{\R^{p\times p}}}
+\newcommand{\Rqq}{\ensuremath{\R^{q\times q}}}
+\newcommand{\Rmk}{\ensuremath{\R^{m\times k}}}
+\newcommand{\Rmm}{\ensuremath{\R^{m\times m}}}
+\newcommand{\Rmn}{\ensuremath{\R^{m\times n}}}
+\newcommand{\Rmp}{\ensuremath{\R^{m\times p}}}
+\newcommand{\Rmr}{\ensuremath{\R^{m\times r}}}
+\newcommand{\Rmu}{\ensuremath{\R^{m\times u}}}
+\newcommand{\Rnr}{\ensuremath{\R^{n\times r}}}
+\newcommand{\Rrp}{\ensuremath{\R^{r\times p}}}
+\newcommand{\Rrr}{\ensuremath{\R^{r\times r}}}
+\newcommand{\Run}{\ensuremath{\R^{u\times n}}}
+\newcommand{\Rum}{\ensuremath{\R^{u\times m}}}
+\newcommand{\Rqn}{\ensuremath{\R^{q\times n}}}
+\newcommand{\RIJ}{\ensuremath{\R^{I\times J}}}
+\newcommand{\RKL}{\ensuremath{\R^{K\times L}}}
+\newcommand{\RIJKL}{\ensuremath{\R^{IK\times JL}}}
+\newcommand{\RIKR}{\ensuremath{\R^{IK\times R}}}
+
+\newcommand{\Kt}{\ensuremath{\K^3}}
+\newcommand{\Kn}{\ensuremath{\K^{n}}}
+\newcommand{\Kd}{\ensuremath{\K^{d}}}
+\newcommand{\Ku}{\ensuremath{\K^{u}}}
+\newcommand{\Km}{\ensuremath{\K^{m}}}
+\newcommand{\Kk}{\ensuremath{\K^{k}}}
+\newcommand{\Kp}{\ensuremath{\K^{p}}}
+\newcommand{\Ktn}{\ensuremath{\K^{2n}}}
+\newcommand{\Knn}{\ensuremath{\K^{n\times n}}}
+\newcommand{\Ktnn}{\ensuremath{\K^{2n\times 2n}}}
+\newcommand{\Kkk}{\ensuremath{\K^{k\times k}}}
+\newcommand{\Kkm}{\ensuremath{\K^{k\times m}}}
+\newcommand{\Kkp}{\ensuremath{\K^{k\times p}}}
+\newcommand{\Kpk}{\ensuremath{\K^{p\times k}}}
+\newcommand{\Kpn}{\ensuremath{\K^{p\times n}}}
+\newcommand{\Knp}{\ensuremath{\K^{n\times p}}}
+\newcommand{\Knk}{\ensuremath{\K^{n\times k}}}
+\newcommand{\Knm}{\ensuremath{\K^{n\times m}}}
+\newcommand{\Knu}{\ensuremath{\K^{n\times u}}}
+\newcommand{\Kpm}{\ensuremath{\K^{p\times m}}}
+\newcommand{\Kpp}{\ensuremath{\K^{p\times p}}}
+\newcommand{\Kqq}{\ensuremath{\K^{q\times q}}}
+\newcommand{\Kmk}{\ensuremath{\K^{m\times k}}}
+\newcommand{\Kmm}{\ensuremath{\K^{m\times m}}}
+\newcommand{\Kmn}{\ensuremath{\K^{m\times n}}}
+\newcommand{\Kmp}{\ensuremath{\K^{m\times p}}}
+\newcommand{\Kmr}{\ensuremath{\K^{m\times r}}}
+\newcommand{\Kmu}{\ensuremath{\K^{m\times u}}}
+\newcommand{\Knr}{\ensuremath{\K^{n\times r}}}
+\newcommand{\Krp}{\ensuremath{\K^{r\times p}}}
+\newcommand{\Krr}{\ensuremath{\K^{r\times r}}}
+\newcommand{\Kun}{\ensuremath{\K^{u\times n}}}
+\newcommand{\Kum}{\ensuremath{\K^{u\times m}}}
+\newcommand{\Kqn}{\ensuremath{\K^{q\times n}}}
+
+
+\newcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand{\Cn}{\ensuremath{\C^{n}}}
+\newcommand{\Cm}{\ensuremath{\C^{m}}}
+\newcommand{\Ck}{\ensuremath{\C^{k}}}
+\newcommand{\Cp}{\ensuremath{\C^{p}}}
+\newcommand{\Cnn}{\ensuremath{\C^{n\times n}}}
+\newcommand{\Ctnn}{\ensuremath{\C^{2n\times 2n}}}
+\newcommand{\Cnk}{\ensuremath{\C^{n\times k}}}
+\newcommand{\Ckk}{\ensuremath{\C^{k\times k}}}
+\newcommand{\Cnm}{\ensuremath{\C^{n\times m}}}
+\newcommand{\Cpn}{\ensuremath{\C^{p\times n}}}
+\newcommand{\Cnp}{\ensuremath{\C^{n\times p}}}
+\newcommand{\Cpm}{\ensuremath{\C^{p\times m}}}
+\newcommand{\Ckm}{\ensuremath{\C^{k\times m}}}
+\newcommand{\Cpk}{\ensuremath{\C^{p\times k}}}
+\newcommand{\Cpp}{\ensuremath{\C^{p\times p}}}
+\newcommand{\Cmn}{\ensuremath{\C^{m\times n}}}
+\newcommand{\Cmm}{\ensuremath{\C^{m\times m}}}
+\newcommand{\Cmp}{\ensuremath{\C^{m\times p}}}
+\newcommand{\Cmr}{\ensuremath{\C^{m\times r}}}
+\newcommand{\Cnr}{\ensuremath{\C^{n\times r}}}
+\newcommand{\Crr}{\ensuremath{\C^{r\times r}}}
+\newcommand{\fln}[2]{\ensuremath{#1 \times 10 ^{- #2}}}
+\newcommand{\flp}[2]{\ensuremath{#1 \times 10 ^{#2}}}
+\newcommand{\us}{\ensuremath{\mathcal{US}_{2n}}}
+\newcommand{\ve}{\ensuremath{\varepsilon}}
+%%%% common double bar norms
+%\newcommand {\abs}      [1] {\ensuremath{\left|#1\right|}}
+\newcommand {\nrm}      [2][] {\ensuremath{\left|\left| #2
+      \right|\right|
+\ifEmpty{#1}\else_{#1}\fi}}
+\newcommand {\nrmF}     [1] {\ensuremath{\nrm[F]{#1}}}
+\newcommand {\nrmone}   [1] {\ensuremath{\nrm[1]{#1}}}
+\newcommand {\nrmtwo}   [1] {\ensuremath{\nrm[2]{#1}}}
+\newcommand {\nrminf}   [1] {\ensuremath{\nrm[\infty]{#1}}}
+%%%% frequently used operators
+\newcommand{\Rel}  [2] {\ensuremath{[ #1  \backslash  #2 ]}}
+\ifsiam
+  \newcommand{\myrank}[1]{\ensuremath{\mathop{\mathrm{rank}}\left( #1
+      \right)}}
+\else
+  \newcommand{\rank}[1]{\ensuremath{\mathop{\mathrm{rank}}\left( #1
+      \right)}}
+\fi
+\newcommand{\dom}[1]{\ensuremath{\mathop{\mathrm{dom}}\left( #1 \right)}}
+\newcommand{\kernel}[1]{\ensuremath{\mathop{\mathrm{ker}}\left( #1 \right)}}
+\newcommand{\range}[1]{\ensuremath{\mathop{\mathrm{range}}\left( #1 \right)}}
+\newcommand{\nully}[1]{\ensuremath{\mathop{\mathrm{null}}\left( #1 \right)}}
+\newcommand{\cond}[2][]{\ensuremath{\mathop{\mathrm{cond}_{#1}}\left( #2 \right)}}
+\newcommand{\trace}[1]{\ensuremath{\mathop{\mathrm{tr}}\left( #1 \right)}}
+\newcommand{\hinf}{\ensuremath{${\mathbb{H}}_{\infty}$}}
+\newcommand{\disc}[1]{\mbox{disc}\ensuremath{\left(#1\right)}}
+\newcommand{\sign}[1]{\mbox{sign}\ensuremath{\left(#1\right)}}
+\newcommand{\esssup}{\ensuremath{\mathop{\mathrm{ess}\,\sup}}}
+\newcommand{\diagmat}[1]{\ensuremath{{\mathrm{diag}}\left(#1\right)}}
+\ifsiam
+   \newcommand{\mygrad}{\ensuremath{\nabla}}
+\else
+  \newcommand{\grad}{\ensuremath{\nabla}}
+\fi
+\newcommand{\rot}{\ensuremath{\mathop{\mathrm{rot}}}}
+\newcommand{\curl}{\ensuremath{\mathop{\mathrm{curl}}}}
+\newcommand{\divg}{\ensuremath{\mathop{\mathrm{div}}}}
+\DeclareMathOperator{\nnz}{nnz}
+\DeclareMathOperator{\Ima}{Im}
+\newcommand{\gauss}[1]{\ensuremath{\lceil #1 \rceil}}
+\newcommand{\argmin}[1]{\ensuremath{\mathop{\mathrm{argmin}}\left( #1 \right)}}
+\newcommand{\card}[1]{\ensuremath{\mathop{\mathrm{card}}\left\lbrace #1 \right\rbrace}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% \tilde letters
+\newcommand{\tA}{\ensuremath{\tilde{A}}}
+\newcommand{\tB}{\ensuremath{\tilde{B}}}
+\newcommand{\tC}{\ensuremath{\tilde{C}}}
+\newcommand{\tD}{\ensuremath{\tilde{D}}}
+\newcommand{\tE}{\ensuremath{\tilde{E}}}
+\newcommand{\tF}{\ensuremath{\tilde{F}}}
+\newcommand{\tG}{\ensuremath{\tilde{G}}}
+\newcommand{\tH}{\ensuremath{\tilde{H}}}
+\newcommand{\tI}{\ensuremath{\tilde{I}}}
+\newcommand{\tJ}{\ensuremath{\tilde{J}}}
+\newcommand{\tK}{\ensuremath{\tilde{K}}}
+\newcommand{\tL}{\ensuremath{\tilde{L}}}
+\newcommand{\tM}{\ensuremath{\tilde{M}}}
+\newcommand{\tN}{\ensuremath{\tilde{N}}}
+\newcommand{\tO}{\ensuremath{\tilde{O}}}
+\newcommand{\tP}{\ensuremath{\tilde{P}}}
+\newcommand{\tQ}{\ensuremath{\tilde{Q}}}
+\newcommand{\tR}{\ensuremath{\tilde{R}}}
+\newcommand{\tS}{\ensuremath{\tilde{S}}}
+\newcommand{\tT}{\ensuremath{\tilde{T}}}
+\newcommand{\tU}{\ensuremath{\tilde{U}}}
+\newcommand{\tV}{\ensuremath{\tilde{V}}}
+\newcommand{\tW}{\ensuremath{\tilde{W}}}
+\newcommand{\tX}{\ensuremath{\tilde{X}}}
+\newcommand{\tY}{\ensuremath{\tilde{Y}}}
+\newcommand{\tZ}{\ensuremath{\tilde{Z}}}
+\newcommand{\tSigma}{\ensuremath{\tilde{\Sigma}}}
+%
+\newcommand{\ta}{\ensuremath{\tilde{a}}}
+\newcommand{\tb}{\ensuremath{\tilde{b}}}
+\newcommand{\tc}{\ensuremath{\tilde{c}}}
+\newcommand{\td}{\ensuremath{\tilde{d}}}
+\newcommand{\te}{\ensuremath{\tilde{e}}}
+\newcommand{\tf}{\ensuremath{\tilde{f}}}
+\newcommand{\tg}{\ensuremath{\tilde{g}}}
+\newcommand{\tth}{\ensuremath{\tilde{h}}}
+\newcommand{\ti}{\ensuremath{\tilde{i}}}
+\newcommand{\tj}{\ensuremath{\tilde{j}}}
+\newcommand{\tk}{\ensuremath{\tilde{k}}}
+\newcommand{\tl}{\ensuremath{\tilde{l}}}
+\newcommand{\tm}{\ensuremath{\tilde{m}}}
+\newcommand{\tn}{\ensuremath{\tilde{n}}}
+\newcommand{\tto}{\ensuremath{\tilde{o}}}
+\newcommand{\tp}{\ensuremath{\tilde{p}}}
+\newcommand{\tq}{\ensuremath{\tilde{q}}}
+\newcommand{\tr}{\ensuremath{\tilde{r}}}
+\newcommand{\tss}{\ensuremath{\tilde{s}}}
+\newcommand{\ttt}{\ensuremath{\tilde{t}}}
+\newcommand{\tu}{\ensuremath{\tilde{u}}}
+\newcommand{\tv}{\ensuremath{\tilde{v}}}
+\newcommand{\tw}{\ensuremath{\tilde{w}}}
+\newcommand{\tx}{\ensuremath{\tilde{x}}}
+\newcommand{\ty}{\ensuremath{\tilde{y}}}
+\newcommand{\tz}{\ensuremath{\tilde{z}}}
+
+%% bold math 
+\newcommand{\bA}{\ensuremath{\mathbf{A}}}
+\newcommand{\bB}{\ensuremath{\mathbf{B}}}
+\newcommand{\bC}{\ensuremath{\mathbf{C}}}
+\newcommand{\bD}{\ensuremath{\mathbf{D}}}
+\newcommand{\bE}{\ensuremath{\mathbf{E}}}
+\newcommand{\bF}{\ensuremath{\mathbf{F}}}
+\newcommand{\bG}{\ensuremath{\mathbf{G}}}
+\newcommand{\bH}{\ensuremath{\mathbf{H}}}
+\newcommand{\bI}{\ensuremath{\mathbf{I}}}
+\newcommand{\bJ}{\ensuremath{\mathbf{J}}}
+\newcommand{\bK}{\ensuremath{\mathbf{K}}}
+\newcommand{\bL}{\ensuremath{\mathbf{L}}}
+\newcommand{\bM}{\ensuremath{\mathbf{M}}}
+\newcommand{\bN}{\ensuremath{\mathbf{N}}}
+\newcommand{\bO}{\ensuremath{\mathbf{O}}}
+\newcommand{\bP}{\ensuremath{\mathbf{P}}}
+\newcommand{\bQ}{\ensuremath{\mathbf{Q}}}
+\newcommand{\bR}{\ensuremath{\mathbf{R}}}
+\newcommand{\bS}{\ensuremath{\mathbf{S}}}
+\newcommand{\bT}{\ensuremath{\mathbf{T}}}
+\newcommand{\bU}{\ensuremath{\mathbf{U}}}
+\newcommand{\bV}{\ensuremath{\mathbf{V}}}
+\newcommand{\bW}{\ensuremath{\mathbf{W}}}
+\newcommand{\bX}{\ensuremath{\mathbf{X}}}
+\newcommand{\bY}{\ensuremath{\mathbf{Y}}}
+\newcommand{\bZ}{\ensuremath{\mathbf{Z}}}
+\newcommand{\ba}{\ensuremath{\mathbf{a}}}
+\newcommand{\bb}{\ensuremath{\mathbf{b}}}
+\newcommand{\bc}{\ensuremath{\mathbf{c}}}
+\newcommand{\boldd}{\ensuremath{\mathbf{d}}}
+\newcommand{\bolde}{\ensuremath{\mathbf{e}}}
+\newcommand{\boldf}{\ensuremath{\mathbf{f}}}
+\newcommand{\bg}{\ensuremath{\mathbf{g}}}
+\newcommand{\bh}{\ensuremath{\mathbf{h}}}
+\newcommand{\bi}{\ensuremath{\mathbf{i}}}
+\newcommand{\bj}{\ensuremath{\mathbf{j}}}
+\newcommand{\bk}{\ensuremath{\mathbf{k}}}
+\newcommand{\bl}{\ensuremath{\mathbf{l}}}
+%\newcommand{\bm}{\ensuremath{\mathbf{m}}}
+\newcommand{\bn}{\ensuremath{\mathbf{n}}}
+\newcommand{\bo}{\ensuremath{\mathbf{o}}}
+\newcommand{\bp}{\ensuremath{\mathbf{p}}}
+\newcommand{\bq}{\ensuremath{\mathbf{q}}}
+\newcommand{\br}{\ensuremath{\mathbf{r}}}
+\newcommand{\bs}{\ensuremath{\mathbf{s}}}
+\newcommand{\bt}{\ensuremath{\mathbf{t}}}
+\newcommand{\bu}{\ensuremath{\mathbf{u}}}
+\newcommand{\bv}{\ensuremath{\mathbf{v}}}
+\newcommand{\bw}{\ensuremath{\mathbf{w}}}
+\newcommand{\bx}{\ensuremath{\mathbf{x}}}
+\newcommand{\by}{\ensuremath{\mathbf{y}}}
+\newcommand{\bz}{\ensuremath{\mathbf{z}}}
+%%%% some bold greek letters (requires amsmath}
+\newcommand{\bsigma}{\ensuremath{\boldsymbol{\sigma}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% some caligraphic stuff
+\newcommand{\cA}{\ensuremath{\mathcal{A}}}
+\newcommand{\cB}{\ensuremath{\mathcal{B}}}
+\newcommand{\cC}{\ensuremath{\mathcal{C}}}
+\newcommand{\cD}{\ensuremath{\mathcal{D}}}
+\newcommand{\cE}{\ensuremath{\mathcal{E}}}
+\newcommand{\cF}{\ensuremath{\mathcal{F}}}
+\newcommand{\cG}{\ensuremath{\mathcal{G}}}
+\newcommand{\cH}{\ensuremath{\mathcal{H}}}
+\newcommand{\cI}{\ensuremath{\mathcal{I}}}
+\newcommand{\cJ}{\ensuremath{\mathcal{J}}}
+\newcommand{\cK}{\ensuremath{\mathcal{K}}}
+\newcommand{\cL}{\ensuremath{\mathcal{L}}}
+\newcommand{\cM}{\ensuremath{\mathcal{M}}}
+\newcommand{\cN}{\ensuremath{\mathcal{N}}}
+\newcommand{\cO}{\ensuremath{\mathcal{O}}}
+\newcommand{\cP}{\ensuremath{\mathcal{P}}}
+\newcommand{\cQ}{\ensuremath{\mathcal{Q}}}
+\newcommand{\cR}{\ensuremath{\mathcal{R}}}
+\newcommand{\cS}{\ensuremath{\mathcal{S}}}
+\newcommand{\cT}{\ensuremath{\mathcal{T}}}
+\newcommand{\cU}{\ensuremath{\mathcal{U}}}
+\newcommand{\cV}{\ensuremath{\mathcal{V}}}
+\newcommand{\cW}{\ensuremath{\mathcal{W}}}
+\newcommand{\cX}{\ensuremath{\mathcal{X}}}
+\newcommand{\cY}{\ensuremath{\mathcal{Y}}}
+\newcommand{\cZ}{\ensuremath{\mathcal{Z}}}
+\newcommand{\ca}{\ensuremath{\mathcal{a}}}
+\newcommand{\cb}{\ensuremath{\mathcal{b}}}
+\ifletter
+ \PackageWarning{mymacros}{Some macro definitions skipped due to
+   naming conflicts in letter classes.}
+\else
+\newcommand{\cc}{\ensuremath{\mathcal{c}}}
+\fi
+\newcommand{\cd}{\ensuremath{\mathcal{d}}}
+\newcommand{\ce}{\ensuremath{\mathcal{e}}}
+\newcommand{\cf}{\ensuremath{\mathcal{f}}}
+\newcommand{\cg}{\ensuremath{\mathcal{g}}}
+\newcommand{\ch}{\ensuremath{\mathcal{h}}}
+\newcommand{\ci}{\ensuremath{\mathcal{i}}}
+\newcommand{\cj}{\ensuremath{\mathcal{j}}}
+\ifsiam
+  \PackageWarning{mymacros}{Some macro definitions skipped due to
+   naming conflicts in letter classes.}
+\else
+  \newcommand{\cl}{\ensuremath{\mathcal{l}}}
+\fi
+\newcommand{\cm}{\ensuremath{\mathcal{m}}}
+\newcommand{\cn}{\ensuremath{\mathcal{n}}}
+\newcommand{\co}{\ensuremath{\mathcal{o}}}
+\newcommand{\cp}{\ensuremath{\mathcal{p}}}
+\newcommand{\cq}{\ensuremath{\mathcal{q}}}
+\newcommand{\cs}{\ensuremath{\mathcal{s}}}
+\newcommand{\ct}{\ensuremath{\mathcal{t}}}
+\newcommand{\cu}{\ensuremath{\mathcal{u}}}
+\newcommand{\cv}{\ensuremath{\mathcal{v}}}
+\newcommand{\cw}{\ensuremath{\mathcal{w}}}
+\newcommand{\cx}{\ensuremath{\mathcal{x}}}
+\newcommand{\cy}{\ensuremath{\mathcal{y}}}
+\newcommand{\cz}{\ensuremath{\mathcal{z}}}
+%%%%% caligraphic stuff with tildes%
+\newcommand{\tcA}{\ensuremath{\tilde{\cA}}}
+\newcommand{\tcB}{\ensuremath{\tilde{\cB}}}
+\newcommand{\tcC}{\ensuremath{\tilde{\cC}}}
+\newcommand{\tcD}{\ensuremath{\tilde{\cD}}}
+\newcommand{\tcE}{\ensuremath{\tilde{\cE}}}
+\newcommand{\tcF}{\ensuremath{\tilde{\cF}}}
+\newcommand{\tcG}{\ensuremath{\tilde{\cG}}}
+\newcommand{\tcH}{\ensuremath{\tilde{\cH}}}
+\newcommand{\tcI}{\ensuremath{\tilde{\cI}}}
+\newcommand{\tcJ}{\ensuremath{\tilde{\cJ}}}
+\newcommand{\tcK}{\ensuremath{\tilde{\cK}}}
+\newcommand{\tcL}{\ensuremath{\tilde{\cL}}}
+\newcommand{\tcM}{\ensuremath{\tilde{\cM}}}
+\newcommand{\tcN}{\ensuremath{\tilde{\cN}}}
+\newcommand{\tcO}{\ensuremath{\tilde{\cO}}}
+\newcommand{\tcP}{\ensuremath{\tilde{\cP}}}
+\newcommand{\tcQ}{\ensuremath{\tilde{\cQ}}}
+\newcommand{\tcR}{\ensuremath{\tilde{\cR}}}
+\newcommand{\tcS}{\ensuremath{\tilde{\cS}}}
+\newcommand{\tcT}{\ensuremath{\tilde{\cT}}}
+\newcommand{\tcU}{\ensuremath{\tilde{\cU}}}
+\newcommand{\tcV}{\ensuremath{\tilde{\cV}}}
+\newcommand{\tcW}{\ensuremath{\tilde{\cW}}}
+\newcommand{\tcX}{\ensuremath{\tilde{\cX}}}
+\newcommand{\tcY}{\ensuremath{\tilde{\cY}}}
+\newcommand{\tcZ}{\ensuremath{\tilde{\cZ}}}
+
+\newcommand{\care}[1]{\ensuremath{\cR_c(#1)}}
+\newcommand{\tcare}[1]{\ensuremath{\widetilde{\cR}_c(#1)}}
+\newcommand{\sare}[1]{\ensuremath{\cR(#1)}}
+\newcommand{\dare}[1]{\ensuremath{\cR_d(#1)}}
+\newcommand{\tdare}[1]{\ensuremath{\widetilde{\cR}_d(#1)}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% some mathfrak stuff
+\newcommand{\fA}{\ensuremath{\mathfrak{A}}}
+\newcommand{\fB}{\ensuremath{\mathfrak{B}}}
+\newcommand{\fC}{\ensuremath{\mathfrak{C}}}
+\newcommand{\fD}{\ensuremath{\mathfrak{D}}}
+\newcommand{\fE}{\ensuremath{\mathfrak{E}}}
+\newcommand{\fF}{\ensuremath{\mathfrak{F}}}
+\newcommand{\fG}{\ensuremath{\mathfrak{G}}}
+\newcommand{\fH}{\ensuremath{\mathfrak{H}}}
+\newcommand{\fI}{\ensuremath{\mathfrak{I}}}
+\newcommand{\fJ}{\ensuremath{\mathfrak{J}}}
+\newcommand{\fK}{\ensuremath{\mathfrak{K}}}
+\newcommand{\fL}{\ensuremath{\mathfrak{L}}}
+\newcommand{\fM}{\ensuremath{\mathfrak{M}}}
+\newcommand{\fN}{\ensuremath{\mathfrak{N}}}
+\newcommand{\fO}{\ensuremath{\mathfrak{O}}}
+\newcommand{\fP}{\ensuremath{\mathfrak{P}}}
+\newcommand{\fQ}{\ensuremath{\mathfrak{Q}}}
+\newcommand{\fR}{\ensuremath{\mathfrak{R}}}
+\newcommand{\fS}{\ensuremath{\mathfrak{S}}}
+\newcommand{\fT}{\ensuremath{\mathfrak{T}}}
+\newcommand{\fU}{\ensuremath{\mathfrak{U}}}
+\newcommand{\fV}{\ensuremath{\mathfrak{V}}}
+\newcommand{\fW}{\ensuremath{\mathfrak{W}}}
+\newcommand{\fX}{\ensuremath{\mathfrak{X}}}
+\newcommand{\fY}{\ensuremath{\mathfrak{Y}}}
+\newcommand{\fZ}{\ensuremath{\mathfrak{Z}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% and hats ...
+\newcommand{\hA}{\ensuremath{\hat{A}}}
+\newcommand{\hB}{\ensuremath{\hat{B}}}
+\newcommand{\hC}{\ensuremath{\hat{C}}}
+\newcommand{\hD}{\ensuremath{\hat{D}}}
+\newcommand{\hE}{\ensuremath{\hat{E}}}
+\newcommand{\hF}{\ensuremath{\hat{F}}}
+\newcommand{\hG}{\ensuremath{\hat{G}}}
+\newcommand{\hH}{\ensuremath{\hat{H}}}
+\newcommand{\hI}{\ensuremath{\hat{I}}}
+\newcommand{\hJ}{\ensuremath{\hat{J}}}
+\newcommand{\hK}{\ensuremath{\hat{K}}}
+\newcommand{\hL}{\ensuremath{\hat{L}}}
+\newcommand{\hM}{\ensuremath{\hat{M}}}
+\newcommand{\hN}{\ensuremath{\hat{N}}}
+\newcommand{\hO}{\ensuremath{\hat{O}}}
+\newcommand{\hP}{\ensuremath{\hat{P}}}
+\newcommand{\hQ}{\ensuremath{\hat{Q}}}
+\newcommand{\hR}{\ensuremath{\hat{R}}}
+\newcommand{\hS}{\ensuremath{\hat{S}}}
+\newcommand{\hT}{\ensuremath{\hat{T}}}
+\newcommand{\hU}{\ensuremath{\hat{U}}}
+\newcommand{\hV}{\ensuremath{\hat{V}}}
+\newcommand{\hW}{\ensuremath{\hat{W}}}
+\newcommand{\hX}{\ensuremath{\hat{X}}}
+\newcommand{\hY}{\ensuremath{\hat{Y}}}
+\newcommand{\hZ}{\ensuremath{\hat{Z}}}
+%
+\newcommand{\ha}{\ensuremath{\hat{a}}}
+\newcommand{\hb}{\ensuremath{\hat{b}}}
+\newcommand{\hc}{\ensuremath{\hat{c}}}
+\newcommand{\hd}{\ensuremath{\hat{d}}}
+\newcommand{\he}{\ensuremath{\hat{e}}}
+\newcommand{\hf}{\ensuremath{\hat{f}}}
+\newcommand{\hg}{\ensuremath{\hat{g}}}
+\newcommand{\hh}{\ensuremath{\hat{h}}}
+\newcommand{\hi}{\ensuremath{\hat{i}}}
+\newcommand{\hj}{\ensuremath{\hat{j}}}
+\newcommand{\hk}{\ensuremath{\hat{k}}}
+\newcommand{\hatl}{\ensuremath{\hat{l}}}
+%\newcommand{\hm}{\ensuremath{\hat{m}}}
+\newcommand{\hn}{\ensuremath{\hat{n}}}
+\newcommand{\ho}{\ensuremath{\hat{o}}}
+\newcommand{\hp}{\ensuremath{\hat{p}}}
+\newcommand{\hq}{\ensuremath{\hat{q}}}
+\newcommand{\hr}{\ensuremath{\hat{r}}}
+\newcommand{\hs}{\ensuremath{\hat{s}}}
+\newcommand{\htt}{\ensuremath{\hat{t}}}
+\newcommand{\hu}{\ensuremath{\hat{u}}}
+\newcommand{\hv}{\ensuremath{\hat{v}}}
+\newcommand{\hw}{\ensuremath{\hat{w}}}
+\newcommand{\hx}{\ensuremath{\hat{x}}}
+\newcommand{\hy}{\ensuremath{\hat{y}}}
+\newcommand{\hz}{\ensuremath{\hat{z}}}
+\newcommand{\hgamma}{\ensuremath{\hat{\gamma}}}
+\newcommand{\hdelta}{\ensuremath{\hat{\delta}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% also underlined i often useful
+\newcommand{\uA}{\ensuremath{\underline{A}}}
+\newcommand{\uB}{\ensuremath{\underline{B}}}
+\newcommand{\uC}{\ensuremath{\underline{C}}}
+\newcommand{\uD}{\ensuremath{\underline{D}}}
+\newcommand{\uE}{\ensuremath{\underline{E}}}
+\newcommand{\uF}{\ensuremath{\underline{F}}}
+\newcommand{\uG}{\ensuremath{\underline{G}}}
+\newcommand{\uH}{\ensuremath{\underline{H}}}
+\newcommand{\uI}{\ensuremath{\underline{I}}}
+\newcommand{\uJ}{\ensuremath{\underline{J}}}
+\newcommand{\uK}{\ensuremath{\underline{K}}}
+\newcommand{\uL}{\ensuremath{\underline{L}}}
+\newcommand{\uM}{\ensuremath{\underline{M}}}
+\newcommand{\uN}{\ensuremath{\underline{N}}}
+\newcommand{\uO}{\ensuremath{\underline{O}}}
+\newcommand{\uP}{\ensuremath{\underline{P}}}
+\newcommand{\uQ}{\ensuremath{\underline{Q}}}
+\newcommand{\uR}{\ensuremath{\underline{R}}}
+\newcommand{\uS}{\ensuremath{\underline{S}}}
+\newcommand{\uT}{\ensuremath{\underline{T}}}
+\newcommand{\uU}{\ensuremath{\underline{U}}}
+\newcommand{\uV}{\ensuremath{\underline{V}}}
+\newcommand{\uW}{\ensuremath{\underline{W}}}
+\newcommand{\uX}{\ensuremath{\underline{X}}}
+\newcommand{\uY}{\ensuremath{\underline{Y}}}
+\newcommand{\uZ}{\ensuremath{\underline{Z}}}
+%
+\newcommand{\ua}{\ensuremath{\underline{a}}}
+\newcommand{\ub}{\ensuremath{\underline{b}}}
+\newcommand{\uc}{\ensuremath{\underline{c}}}
+\newcommand{\ud}{\ensuremath{\underline{d}}}
+\newcommand{\ue}{\ensuremath{\underline{e}}}
+\newcommand{\uf}{\ensuremath{\underline{f}}}
+\newcommand{\ug}{\ensuremath{\underline{g}}}
+\newcommand{\uh}{\ensuremath{\underline{h}}}
+\newcommand{\ui}{\ensuremath{\underline{i}}}
+\newcommand{\uj}{\ensuremath{\underline{j}}}
+\newcommand{\uk}{\ensuremath{\underline{k}}}
+%\newcommand{\ul}{\ensuremath{\underline{l}}}
+\newcommand{\um}{\ensuremath{\underline{m}}}
+\newcommand{\un}{\ensuremath{\underline{n}}}
+\newcommand{\uo}{\ensuremath{\underline{o}}}
+\newcommand{\up}{\ensuremath{\underline{p}}}
+\newcommand{\uq}{\ensuremath{\underline{q}}}
+\newcommand{\ur}{\ensuremath{\underline{r}}}
+\newcommand{\unders}{\ensuremath{\underline{s}}}
+\newcommand{\utt}{\ensuremath{\underline{t}}}
+\newcommand{\uu}{\ensuremath{\underline{u}}}
+\newcommand{\uv}{\ensuremath{\underline{v}}}
+\newcommand{\uw}{\ensuremath{\underline{w}}}
+\newcommand{\ux}{\ensuremath{\underline{x}}}
+\newcommand{\uy}{\ensuremath{\underline{y}}}
+\newcommand{\uz}{\ensuremath{\underline{z}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% small letter in vector form 
+\newcommand{\ra}{\ensuremath{\mathbf{\mathrm{a}}}}
+\newcommand{\rb}{\ensuremath{\mathbf{\mathrm{b}}}}
+\newcommand{\ry}{\ensuremath{\mathbf{\mathrm{y}}}}
+\newcommand{\rx}{\ensuremath{\mathbf{\mathrm{x}}}}
+%vector notation:
+\newcommand{\va}{\ensuremath{\vec{a}}}
+\newcommand{\vb}{\ensuremath{\vec{b}}}
+\newcommand{\vc}{\ensuremath{\vec{c}}}
+\newcommand{\vd}{\ensuremath{\vec{d}}}
+\newcommand{\vece}{\ensuremath{\vec{e}}}
+\newcommand{\vf}{\ensuremath{\vec{f}}}
+\newcommand{\vg}{\ensuremath{\vec{g}}}
+\newcommand{\vh}{\ensuremath{\vec{h}}}
+\newcommand{\vi}{\ensuremath{\vec{i}}}
+\newcommand{\vj}{\ensuremath{\vec{j}}}
+\newcommand{\vk}{\ensuremath{\vec{k}}}
+\newcommand{\vl}{\ensuremath{\vec{l}}}
+\newcommand{\vm}{\ensuremath{\vec{m}}}
+\newcommand{\vn}{\ensuremath{\vec{n}}}
+\newcommand{\vo}{\ensuremath{\vec{o}}}
+\newcommand{\vp}{\ensuremath{\vec{p}}}
+\newcommand{\vq}{\ensuremath{\vec{q}}}
+\newcommand{\vr}{\ensuremath{\vec{r}}}
+\newcommand{\vs}{\ensuremath{\vec{s}}}
+\newcommand{\vt}{\ensuremath{\vec{t}}}
+\newcommand{\vu}{\ensuremath{\vec{u}}}
+\newcommand{\vv}{\ensuremath{\vec{v}}}
+\newcommand{\vw}{\ensuremath{\vec{w}}}
+\newcommand{\vx}{\ensuremath{\vec{x}}}
+\newcommand{\vy}{\ensuremath{\vec{y}}}
+\newcommand{\vz}{\ensuremath{\vec{z}}}
+\newcommand{\vxi}{\ensuremath{\vec{\xi}}}
+
+
+%tensor notations
+\newcommand{\etal}{\textit{et al}.}
+\newcommand{\ie}{\textit{i}.\textit{e}.}
+\newcommand{\eg}{\textit{e}.\textit{g}.}
+\newcommand{\tensx}{\ensuremath{\boldsymbol{\mathscr{X}}}}
+\newcommand{\tensy}{\ensuremath{\boldsymbol{\mathscr{Y}}}}
+\newcommand{\matdim}[1]{\ensuremath{\mathbb{#1}^{J \times I_n}}}
+\newcommand{\tend}[2]{\ensuremath{\boldsymbol{\mathscr{#1}}_{#2}}}
+\newcommand{\tendtt}[2]{\ensuremath{\boldsymbol{\mathscr{#1}}^{(#2)}}}
+\newcommand{\dims}[2]{\ensuremath{\mathbb{#1}^{{#2}_1 \times {#2}_2 \times \ldots \times {#2}_N}}}
+\newcommand{\krodimten}[3]{\ensuremath{\mathbb{#1}^{{#2}_1 {#3}_1\times {#2}_2 {#3}_2 \times \ldots \times {#2}_N {#3}_N}}}
+\newcommand{\tenem}[1]{\ensuremath{{#1}_{i_1 i_2 \ldots  i_N}}}
+\newcommand{\nten}[2]{\ensuremath{\mathbf{#1}_{\left( #2 \right)}}}
+\newcommand{\mdims}[2]{\ensuremath{\mathbb{R}^{I_{#1} \times I_1 \ldots I_{#1-1} I_{#1+1} \ldots I_{#2}}}}
+\newcommand{\ttcdim}[1]{\ensuremath{\mathbb{R}^{R_{#1-1} \times I_{#1}\times R_{#1}}}}
+\newcommand{\ttmdim}[1]{\ensuremath{\mathbb{R}^{I_{#1}\times R_{#1-1} R_{#1}}}}
+\newcommand{\nmod}{\ensuremath{\times_{n}}}
+\newcommand{\dimnmod}[1]{\ensuremath{\mathbb{#1}^{I_1 \times \ldots \times I_{n-1} \times J \times I_{n+1}, \times  \ldots \times I_N}}}
+\newcommand{\teninner}{\ensuremath{\sum_{i_1}^{I_1}\sum_{i_2}^{I_2} \ldots \sum_{i_n}^{I_N} x_{i_1 i_2 \ldots i_n} y_{i_1 i_2 \ldots i_n}}}
+\newcommand{\tta}{\ensuremath{ \boldsymbol{\mathscr{G}^{(1)}} \times^1 \boldsymbol{\mathscr{G}^{(2)}} \times^1  \cdots \times^1 \boldsymbol{\mathscr{G}^{(N)}}}}
+\newcommand{\ttbra}{\ensuremath{ \boldsymbol{\mathscr{G}^{(1)}}, \boldsymbol{\mathscr{G}^{(2)}} ,  \cdots , \boldsymbol{\mathscr{G}^{(N)}}}}
+\newcommand{\tena}{\ensuremath{\boldsymbol{\mathscr{A}}}}
+\newcommand{\tenc}{\ensuremath{\boldsymbol{\mathscr{C}}}}
+\newcommand{\tenu}{\ensuremath{\boldsymbol{\mathscr{U}}}}
+\newcommand{\tenr}{\ensuremath{\boldsymbol{\mathscr{R}}}}
+\newcommand{\teng}{\ensuremath{\boldsymbol{\mathscr{G}}}}
+\newcommand{\tenz}{\ensuremath{\boldsymbol{\mathscr{Z}}}}
+\newcommand{\tent}{\ensuremath{\boldsymbol{\mathscr{T}}}}
+\newcommand{\tens}{\ensuremath{\boldsymbol{\mathscr{S}}}}
+\newcommand{\tenv}{\ensuremath{\boldsymbol{\mathscr{V}}}}
+% CP decomposition
+\newcommand{\cpd}{\ensuremath{ \boldsymbol{A}^{(1)}, \boldsymbol{A}^{(2)},  \cdots, \boldsymbol{A}^{(N)}}}
+\newcommand{\sumcpd}{\ensuremath{{\mathbf{\mathrm{a}}^{(1)}_r \circ \mathbf{\mathrm{a}}^{(2)}_r \circ \cdots \circ \mathbf{\mathrm{a}}^{(N)}_r }}}
+% command for langle double bracket for tensor representation
+\makeatletter
+\newsavebox{\@brx}
+\newcommand{\llangle}[1][]{\savebox{\@brx}{\(\m@th{#1\langle}\)}%
+  \mathopen{\copy\@brx\kern-0.5\wd\@brx\usebox{\@brx}}}
+\newcommand{\rrangle}[1][]{\savebox{\@brx}{\(\m@th{#1\rangle}\)}%
+  \mathclose{\copy\@brx\kern-0.5\wd\@brx\usebox{\@brx}}}
+\makeatother
+
+%line defining
+\newcommand{\lin}{\rule{8.2cm}{0.01cm}}
+%drawing tensor in LaTeX2e
+\newcommand{\Depth}{2}
+\newcommand{\Height}{2}
+\newcommand{\Width}{2}
+\newcommand{\xx}{1}
+\newcommand{\yy}{1}
+\newcommand{\zz}{1}

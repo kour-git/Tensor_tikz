@@ -1,0 +1,44 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{kiramacros}[2009/02/18 1.0 LaTeX2e math alphabet
+macros and more]
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsfonts} 
+\RequirePackage{textcomp} 
+
+\DeclareOption{fonts}{
+  \DeclareSymbolFont{AMSb}{U}{pxsyb}{m}{n}
+  \SetSymbolFont{AMSb}{bold}{U}{pxsyb}{bx}{n}
+  \DeclareFontSubstitution{U}{pxsyb}{m}{n}
+  \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
+}
+
+
+\newif\ifletter\letterfalse
+\DeclareOption{letter}{
+  \lettertrue
+}
+\newif\ifsiam\siamfalse
+\DeclareOption{siam}{
+  \siamtrue
+}
+\ProcessOptions*
+
+% command for langle double bracket for tensor representation
+\makeatletter
+\newsavebox{\@brx}
+\newcommand{\llangle}[1][]{\savebox{\@brx}{\(\m@th{#1\langle}\)}%
+  \mathopen{\copy\@brx\kern-0.5\wd\@brx\usebox{\@brx}}}
+\newcommand{\rrangle}[1][]{\savebox{\@brx}{\(\m@th{#1\rangle}\)}%
+  \mathclose{\copy\@brx\kern-0.5\wd\@brx\usebox{\@brx}}}
+\makeatother
+
+%line defining
+\newcommand{\lin}{\rule{8.2cm}{0.01cm}}
+%drawing tensor in LaTeX2e
+\newcommand{\Depth}{2}
+\newcommand{\Height}{2}
+\newcommand{\Width}{2}
+\newcommand{\xx}{1}
+\newcommand{\yy}{1}
+\newcommand{\zz}{1}

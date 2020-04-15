@@ -1,0 +1,42 @@
+\usepackage{tikz,tikz-3dplot}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{times}
+
+
+\usetikzlibrary{positioning,arrows.meta,quotes}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{bayesnet}
+\tikzset{>=latex}
+
+\usepackage{xcolor} % own color definitions
+\usepackage{listings} % code snippets
+\usepackage[normalem]{ulem} % strikethrough text
+\usepackage[mathscr]{eucal} % tensor euler script
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{commath}
+\usepackage{graphicx}
+\usepackage[caption = false]{subfig}
+\usepackage{amssymb}
+\usepackage{CP_tensor} % macros file 
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows}
+\usepackage{tcolorbox}
+\usetikzlibrary{calc}
+\definecolor{mpiblue}{HTML}{33a5c3}
+\colorlet{MPIblue}{mpiblue}
+\definecolor{mpibluefont}{HTML}{17a1c1}
+\colorlet{MPIbluefont}{mpibluefont}
+\definecolor{mpigreen}{HTML}{007675}
+\colorlet{MPIgreen}{mpigreen}
+\definecolor{mpired}{HTML}{78004B}
+\colorlet{MPIred}{mpired}
+\definecolor{mpisand}{HTML}{ece9d4}
+\colorlet{MPIsand}{mpisand}
+\newcommand*\circledb[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt,fill = mpiblue] (char) {#1};}}
+ \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt,fill = mpimpiblue!50] (char) {#1};}}    

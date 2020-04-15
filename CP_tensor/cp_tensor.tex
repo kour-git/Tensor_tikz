@@ -1,0 +1,82 @@
+%%%%%%%%% %%%%%% Canonical Polyadic decomposition of 3-way tensor %%%%%%%%%%%%%
+\documentclass[tikz,border=0.1cm,usenames,dvipsnames]{standalone}
+\input{package}
+
+
+\begin{document}
+\begin{tikzpicture}
+           
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Main tensor X
+\coordinate (O) at (0,0,0);
+\coordinate (A) at (0,\Width,0);
+\coordinate (B) at (0,\Width,\Height);
+\coordinate (C) at (0,0,\Height);
+\coordinate (D) at (\Depth,0,0);
+\coordinate (E) at (\Depth,\Width,0);
+\coordinate (F) at (\Depth,\Width,\Height);
+\coordinate (G) at (\Depth,0,\Height);
+\draw[mpiblue!60!black,fill=mpiblue!5] (O) -- (C) -- (G) -- (D) -- cycle;% Bottom Face
+\draw[mpiblue!60!black,fill=mpiblue!5] (O) -- (A) -- (E) -- (D) -- cycle;% Back Face
+\draw[mpiblue!60!black,fill=mpiblue!5] (O) -- (A) -- (B) -- (C) -- cycle;% Left Face
+\draw[mpiblue!60!black,fill=mpiblue!5,opacity=0.8] (D) -- (E) -- (F) -- (G) -- cycle;% Right Face
+\draw[mpiblue!60!black,fill=mpiblue!5,opacity=0.6] (C) -- (B) -- (F) -- (G) -- cycle;% Front Face
+\draw[mpiblue!60!black,fill=mpiblue!5,opacity=0.8] (A) -- (B) -- (F) -- (E) -- cycle;% Top Face
+ % coordinates         
+ \coordinate (O) at (0+\xx,0+\yy,0+\zz);  % positining tensor X
+ \coordinate (F) at (\Depth+\xx,0.25\Width+\yy,0.25\Height+\zz); % positioning approx_equal  
+ 
+\draw (0.2,-1.3,0) node {\scriptsize{$I_2$}}; % 2nd dimension
+\draw (0.2,-1,0) node[rotate = 0] {$\underbrace{\hspace{2cm}}$}; % curly base under the edge for I_2
+\draw (-0.5,1,2) node[rotate = 0] {\scriptsize{$ I_1$}}; % 1st dimension
+\draw (-0.2,1,2) node[rotate = 270] {$\underbrace{\hspace{2cm}}$}; % curly base left  to the edge for I_1
+\draw (2.5,0,1.2) node[rotate = 0, below right = -0.3cm] {\scriptsize{$I_3$}}; % 3rd dimension
+\draw (2.2,0,1.2) node[rotate = 45] {$\underbrace{\hspace{1.1cm}}$}; % curly base right  to the edge for I_3
+\draw (O) node {$\tensx$}; % writing tensor X in the center
+\draw (F) node {$\cong$}; % approx_equal symbol
+
+ %%%%%% CP%%%%%%%%%%%
+ %% core 1 %%% A1_1 %%
+    \draw [very thick] (3,-0.7) rectangle (3.2,0.3);
+    \filldraw [fill=mpired!20!white,draw=mpigreen!40!black] (3,-0.7) rectangle (3.2,0.3);
+    \draw (3.5,-0.6) node {\scriptsize{$\ba^{(1)}_1$}};
+% % A2_1 %%    
+   \draw [very thick] (3.3, 0.4) rectangle (4.5,0.6);
+   \filldraw [fill=mpired!30!white,draw=mpigreen!40!black] (3.3,0.4) rectangle (4.5,0.6);
+   \draw (4.3, 0.15) node {\scriptsize{$\ba^{(2)}_1$}};
+%% A3_1 %%
+    \draw[fill=mpired!35!white,draw=mpigreen!40!black, thick] (3,0.7) --(3.2,0.7)--(3.7,1.3)--(3.5,1.3) -- cycle;
+   \draw (4,1.3) node {\scriptsize{$\ba^{(3)}_1$}};
+   
+ %% signs %%%  
+    \draw (4.9,0.5) node {{\color{black}\large{$+$}}};
+    \draw (7.3,0.5) node {{\color{black}\large{$+$}}};
+    \draw (7.8,0.5) node {{\color{black}\large{$\cdots$}}};
+    \draw (8.3,0.5) node {{\color{black}\large{$+$}}};
+    
+%% core 2 %%% A1_2 %%
+    \draw [very thick] (5.5,-0.7) rectangle (5.7,0.3);
+    \filldraw [fill=mpired!20!white,draw=mpigreen!40!black] (5.5,-0.7) rectangle (5.7,0.3);
+    \draw (6,-0.6) node {\scriptsize{$\ba^{(1)}_2$}};
+%% A2_2 %%     
+   \draw [very thick] (5.8, 0.4) rectangle (7,0.6);
+   \filldraw [fill=mpired!30!white,draw=mpigreen!40!black] (5.8,0.4) rectangle (7,0.6);
+   \draw (6.8, 0.15) node {\scriptsize{$\ba^{(2)}_2$}};
+%% A3_2 %%
+    \draw[fill=mpired!35!white,draw=mpigreen!40!black, thick] (5.5,0.7) --(5.7,0.7)--(6.2,1.3)--(6,1.3) -- cycle; 
+   \draw (6.5,1.3) node {\scriptsize{$\ba^{(3)}_2$}};
+
+%% core 3 %%% A1_3 %%
+    \draw [very thick] (8.5,-0.7) rectangle (8.7,0.3);
+    \filldraw [fill=mpired!20!white,draw=mpigreen!40!black] (8.5,-0.7) rectangle (8.7,0.3);
+    \draw (9,-0.6) node {\scriptsize{$\ba^{(1)}_R$}};
+%% A2_3 %%   
+   \draw [very thick] (8.8, 0.4) rectangle (10,0.6);
+   \filldraw [fill=mpired!30!white,draw=mpigreen!40!black] (8.8,0.4) rectangle (10,0.6);
+   \draw (9.8, 0.15) node {\scriptsize{$\ba^{(2)}_R$}};
+%% A3_3 %%
+    \draw[fill=mpired!35!white,draw=mpigreen!40!black, thick] (8.5,0.7) --(8.7,0.7)--(9.2,1.3)--(9,1.3) -- cycle; 
+   \draw (9.5,1.3) node {\scriptsize{$\ba^{(3)}_R$}};
+
+\end{tikzpicture}
+\end{document} 

@@ -1,0 +1,80 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mymacros}[2009/02/18 1.0 LaTeX2e math alphabet
+macros and more]
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsfonts} 
+\RequirePackage{textcomp} 
+
+\DeclareOption{fonts}{
+  \DeclareSymbolFont{AMSb}{U}{pxsyb}{m}{n}
+  \SetSymbolFont{AMSb}{bold}{U}{pxsyb}{bx}{n}
+  \DeclareFontSubstitution{U}{pxsyb}{m}{n}
+  \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
+}
+
+\newif\ifletter\letterfalse
+\DeclareOption{letter}{
+  \lettertrue
+}
+\newif\ifsiam\siamfalse
+\DeclareOption{siam}{
+  \siamtrue
+}
+\ProcessOptions*
+
+%tensor notations
+\newcommand{\etal}{\textit{et al}.}
+\newcommand{\ie}{\textit{i}.\textit{e}.}
+\newcommand{\eg}{\textit{e}.\textit{g}.}
+\newcommand{\tensx}{\ensuremath{\boldsymbol{\mathscr{X}}}}
+\newcommand{\tensy}{\ensuremath{\boldsymbol{\mathscr{Y}}}}
+\newcommand{\matdim}[1]{\ensuremath{\mathbb{#1}^{J \times I_n}}}
+\newcommand{\tend}[2]{\ensuremath{\boldsymbol{\mathscr{#1}}_{#2}}}
+\newcommand{\tendtt}[2]{\ensuremath{\boldsymbol{\mathscr{#1}}^{(#2)}}}
+\newcommand{\dims}[2]{\ensuremath{\mathbb{#1}^{{#2}_1 \times {#2}_2 \times \ldots \times {#2}_N}}}
+\newcommand{\krodimten}[3]{\ensuremath{\mathbb{#1}^{{#2}_1 {#3}_1\times {#2}_2 {#3}_2 \times \ldots \times {#2}_N {#3}_N}}}
+\newcommand{\tenem}[1]{\ensuremath{{#1}_{i_1 i_2 \ldots  i_N}}}
+\newcommand{\nten}[2]{\ensuremath{\mathbf{#1}_{\left( #2 \right)}}}
+\newcommand{\mdims}[2]{\ensuremath{\mathbb{R}^{I_{#1} \times I_1 \ldots I_{#1-1} I_{#1+1} \ldots I_{#2}}}}
+\newcommand{\ttcdim}[1]{\ensuremath{\mathbb{R}^{R_{#1-1} \times I_{#1}\times R_{#1}}}}
+\newcommand{\ttmdim}[1]{\ensuremath{\mathbb{R}^{I_{#1}\times R_{#1-1} R_{#1}}}}
+\newcommand{\nmod}{\ensuremath{\times_{n}}}
+\newcommand{\dimnmod}[1]{\ensuremath{\mathbb{#1}^{I_1 \times \ldots \times I_{n-1} \times J \times I_{n+1}, \times  \ldots \times I_N}}}
+\newcommand{\teninner}{\ensuremath{\sum_{i_1}^{I_1}\sum_{i_2}^{I_2} \ldots \sum_{i_n}^{I_N} x_{i_1 i_2 \ldots i_n} y_{i_1 i_2 \ldots i_n}}}
+\newcommand{\tta}{\ensuremath{ \boldsymbol{\mathscr{G}^{(1)}} \times^1 \boldsymbol{\mathscr{G}^{(2)}} \times^1  \cdots \times^1 \boldsymbol{\mathscr{G}^{(N)}}}}
+\newcommand{\ttbra}{\ensuremath{ \boldsymbol{\mathscr{G}^{(1)}}, \boldsymbol{\mathscr{G}^{(2)}} ,  \cdots , \boldsymbol{\mathscr{G}^{(N)}}}}
+\newcommand{\tena}{\ensuremath{\boldsymbol{\mathscr{A}}}}
+\newcommand{\tenc}{\ensuremath{\boldsymbol{\mathscr{C}}}}
+\newcommand{\tenu}{\ensuremath{\boldsymbol{\mathscr{U}}}}
+\newcommand{\tenr}{\ensuremath{\boldsymbol{\mathscr{R}}}}
+\newcommand{\teng}{\ensuremath{\boldsymbol{\mathscr{G}}}}
+\newcommand{\tenz}{\ensuremath{\boldsymbol{\mathscr{Z}}}}
+\newcommand{\tent}{\ensuremath{\boldsymbol{\mathscr{T}}}}
+\newcommand{\tens}{\ensuremath{\boldsymbol{\mathscr{S}}}}
+\newcommand{\tenv}{\ensuremath{\boldsymbol{\mathscr{V}}}}
+% CP decomposition
+\newcommand{\cpd}{\ensuremath{ \boldsymbol{A}^{(1)}, \boldsymbol{A}^{(2)},  \cdots, \boldsymbol{A}^{(N)}}}
+\newcommand{\sumcpd}{\ensuremath{{\mathbf{\mathrm{a}}^{(1)}_r \circ \mathbf{\mathrm{a}}^{(2)}_r \circ \cdots \circ \mathbf{\mathrm{a}}^{(N)}_r }}}
+% command for langle double bracket for tensor representation
+\makeatletter
+\newsavebox{\@brx}
+\newcommand{\llangle}[1][]{\savebox{\@brx}{\(\m@th{#1\langle}\)}%
+  \mathopen{\copy\@brx\kern-0.5\wd\@brx\usebox{\@brx}}}
+\newcommand{\rrangle}[1][]{\savebox{\@brx}{\(\m@th{#1\rangle}\)}%
+  \mathclose{\copy\@brx\kern-0.5\wd\@brx\usebox{\@brx}}}
+\makeatother
+
+%line defining
+\newcommand{\lin}{\rule{8.2cm}{0.01cm}}
+%drawing tensor in LaTeX2e
+\newcommand{\Depth}{2}
+\newcommand{\Height}{2}
+\newcommand{\Width}{2}
+\newcommand{\xx}{1}
+\newcommand{\yy}{1}
+\newcommand{\zz}{1}
+
+
+% bold small letter for vector 
+\newcommand{\ba}{\ensuremath{\mathbf{a}}}
