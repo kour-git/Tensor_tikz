@@ -74,7 +74,7 @@
 	\draw[thick] (B8) -- (B5);
 	\draw[thick] (B8) -- (B7);
 	\draw[thick] (B8) -- (B6);
-	\draw[thick] (B4) -- (B7) node[below = 6cm, left = 0.3cm ] {\scalebox{15}{$r_0 = 1$}}; 
+	\draw[thick] (B4) -- (B7); % node[below = 6cm, left = 0.3cm ] {\scalebox{15}{$R_0 = 1$}}; 
 	\draw[thick,dashed] (B1) -- (B2) ;
  	\draw[thick,dashed] (B1) -- (B4); % 
  	\draw[thick,dashed] (B1) -- (B3);
@@ -112,7 +112,7 @@
 	\draw[thick] (C3) -- (C5);
 	\draw[thick] (C3) -- (C7);
 	\draw[thick] (C2) -- (C6);% node[above = 2.5cm, right = 3cm ,opacity = 4.9] {\scalebox{18}{$I_3$}}; % 
-	\draw[thick] (C4) -- (C6) node[below left =3cm and 0.3cm ] {\scalebox{15}{$r_3 = 1$}}; 
+	\draw[thick] (C4) -- (C6); % node[below left =1cm and -2cm ] {\scalebox{15}{$R_3 = 1$}}; 
 	\draw[thick] (C8) -- (C5);
 	\draw[thick] (C8) -- (C7);
 	\draw[thick] (C8) -- (C6);
@@ -220,12 +220,12 @@
         (B5) -- (B8) node (k1) [black,midway,xshift=1.2cm, yshift = -1.25cm]  {}; % curly braces for r_1 at 1st core 
 	\draw [line width = 15pt,decorate,decoration={brace,amplitude=70pt,mirror,raise=4pt},xshift=300pt,yshift=5pt]
 	(A7) -- (A4) node (k2) [black,midway,xshift=-8cm] % curly braces for r_1 at 2nd core
-	{\footnotesize \scalebox{12.5}{\circledb{$\boldsymbol{r_1}$}}}; % circled small r_1
+	{\footnotesize \scalebox{12.5}{\circledb{$\boldsymbol{R_1}$}}}; % circled small r_1
 	\draw [line width = 15pt,decorate,decoration={brace,amplitude=70pt},xshift=300cm,yshift=5cm]
 	(A5) -- (A8) node (k3) [black,midway,xshift=1.2cm, yshift = -0.8cm]  {};
 	\draw [line width = 15pt,decorate,decoration={brace,amplitude=70pt,mirror,raise=4pt},xshift=300cm,yshift=5cm]
 	(C7) -- (C4) node (k4) [black,midway,xshift=-8cm] 
-	{\footnotesize \scalebox{12.5}{\circledb{$\boldsymbol{r_2}$}}}; % circled small r_2
+	{\footnotesize \scalebox{12.5}{\circledb{$\boldsymbol{R_2}$}}}; % circled small r_2
 	\draw[-latex,line width=3mm,dotted] (k1) -- (k2) ;
 	\draw[-latex,line width=3mm,dotted] (k3) -- (k4) ;
 	\draw [line width = 15pt,decorate,decoration={brace,amplitude=70pt,mirror,raise=4pt},xshift=300pt,yshift=5pt]
