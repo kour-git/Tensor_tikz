@@ -2,10 +2,6 @@
 
 This repository contains tikz and tex file for Tensor- Train decomposition and Canonical Polyadic Decomposition of a 3-way tensor. 
 
-**Tensor Train**
-
-<img src="https://github.com/kour-git/Tensor_tikz/blob/master/TT_new/TT_dec.png" width="500">
-
 
 
 **Canonical Polyadic** 
@@ -17,3 +13,7 @@ This repository contains tikz and tex file for Tensor- Train decomposition and C
 
 <img src="https://github.com/kour-git/Tensor_tikz/blob/master/Tucker/Tucker.png" width="500">
 
+
+**Tensor Train**
+
+<img src="https://github.com/kour-git/Tensor_tikz/blob/master/TT_new/TT_dec.png" width="500">
