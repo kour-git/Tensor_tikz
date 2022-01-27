@@ -15,5 +15,5 @@ This repository contains tikz and tex file for Tensor- Train decomposition and C
 
 **Tucker Decomposition**
 
-<embed src = "https://github.com/kour-git/Tensor_tikz/blob/master/Tucker/Tucker.pdf" type = "pdf">
+<img src="https://github.com/kour-git/Tensor_tikz/blob/master/Tucker/Tucker.png" width="500">
 
