@@ -1,6 +1,6 @@
 # Tensor_tikz
 
-This repository contains tikz and tex file for Tensor- Train decomposition and Canonical Polyadic Decomposition of a 3-way tensor. 
+This repository contains tikz and tex file for Canonical Polyadic (CP) decomposition, Tucker decomposition, and  Tensor Train (TT) decompositio of a 3-way tensor. 
 
 
 
