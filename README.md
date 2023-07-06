@@ -19,11 +19,13 @@ This repository contains tikz and tex file for Canonical Polyadic (CP) decomposi
 <img src="https://github.com/kour-git/Tensor_tikz/blob/master/TT_new/TT_dec.png" width="500">
 
 
+
+
 **Cite As**
 
 If you use my codes for the further research/presentation then please cite the following articles,
 
-[[Efficient_STTM]](https://www.jmlr.org/papers/volume24/20-1310/20-1310.pdf).
+[Efficient_STTM](https://www.jmlr.org/papers/volume24/20-1310/20-1310.pdf), [Weighted-supspace Exp Kernel](https://arxiv.org/abs/2302.08134).
 <details><summary> BibTeX </summary><pre>
 @article{JMLR:v24:20-1310,
   author  = {Kirandeep Kour and Sergey Dolgov and Martin Stoll and Peter Benner},
@@ -35,11 +37,8 @@ If you use my codes for the further research/presentation then please cite the f
   pages   = {1--22},
   url     = {http://jmlr.org/papers/v24/20-1310.html}
 }
-}</
 
 
-[[Weighted-supspace Exp Kernel]](https://arxiv.org/abs/2302.08134).
-<details><summary> BibTeX </summary><pre>
 @misc{kour2023weighted,
       title={A weighted subspace exponential kernel for support tensor machines}, 
       author={Kirandeep Kour and Sergey Dolgov and Peter Benner and Martin Stoll and Max Pfeffer},
@@ -48,4 +47,4 @@ If you use my codes for the further research/presentation then please cite the f
       archivePrefix={arXiv},
       primaryClass={stat.ML}
 }
-}</
+
